@@ -1,17 +1,39 @@
 package com.example.bikenavbackend.dto.response;
 
-public class CourseListResponseDTO {
-    private Long courseId;
-    private String title;
-    private double distKm;
-    private int time;
-    private String image;
-    private int diff;
-    private boolean isRecommended;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.math.BigDecimal;
 
+public class CourseListResponseDTO {
+    @JsonProperty("course_id")
+    private Integer courseId;
+
+    @JsonProperty("title")
+    private String title;
+
+    @JsonProperty("dist_km")
+    private BigDecimal distKm;
+
+    @JsonProperty("time")
+    private Integer time;
+
+    @JsonProperty("image")
+    private String image;
+
+    @JsonProperty("diff")
+    private Integer diff;
+
+    @JsonProperty("recommended")
+    private Boolean isRecommended;
+
+    @JsonProperty("type")
+    private String type;
+
+    // 기본 생성자
     public CourseListResponseDTO() {}
 
-    public CourseListResponseDTO(Long courseId, String title, double distKm, int time, String image, int diff, boolean isRecommended) {
+    // 전체 필드 생성자
+    public CourseListResponseDTO(Integer courseId, String title, BigDecimal distKm, Integer time,
+                                 String image, Integer diff, Boolean isRecommended, String type) {
         this.courseId = courseId;
         this.title = title;
         this.distKm = distKm;
@@ -19,13 +41,16 @@ public class CourseListResponseDTO {
         this.image = image;
         this.diff = diff;
         this.isRecommended = isRecommended;
+        this.type = type;
     }
 
-    public Long getCourseId() {
+    // getter, setter
+
+    public Integer getCourseId() {
         return courseId;
     }
 
-    public void setCourseId(Long courseId) {
+    public void setCourseId(Integer courseId) {
         this.courseId = courseId;
     }
 
@@ -37,19 +62,19 @@ public class CourseListResponseDTO {
         this.title = title;
     }
 
-    public double getDistKm() {
+    public BigDecimal getDistKm() {
         return distKm;
     }
 
-    public void setDistKm(double distKm) {
+    public void setDistKm(BigDecimal distKm) {
         this.distKm = distKm;
     }
 
-    public int getTime() {
+    public Integer getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(Integer time) {
         this.time = time;
     }
 
@@ -61,19 +86,27 @@ public class CourseListResponseDTO {
         this.image = image;
     }
 
-    public int getDiff() {
+    public Integer getDiff() {
         return diff;
     }
 
-    public void setDiff(int diff) {
+    public void setDiff(Integer diff) {
         this.diff = diff;
     }
 
-    public boolean isRecommended() {
+    public Boolean getIsRecommended() {
         return isRecommended;
     }
 
-    public void setRecommended(boolean recommended) {
-        isRecommended = recommended;
+    public void setIsRecommended(Boolean isRecommended) {
+        this.isRecommended = isRecommended;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
