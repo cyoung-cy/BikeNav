@@ -22,8 +22,8 @@ public class CourseListResponseDTO {
     @JsonProperty("diff")
     private Integer diff;
 
-    @JsonProperty("recommended")
-    private Boolean isRecommended;
+    @JsonProperty("is_recommended")
+    private Boolean recommended;
 
     @JsonProperty("type")
     private String type;
@@ -33,14 +33,14 @@ public class CourseListResponseDTO {
 
     // 전체 필드 생성자
     public CourseListResponseDTO(Integer courseId, String title, BigDecimal distKm, Integer time,
-                                 String image, Integer diff, Boolean isRecommended, String type) {
+                                 String image, Integer diff, Boolean recommended, String type) {
         this.courseId = courseId;
         this.title = title;
         this.distKm = distKm;
         this.time = time;
         this.image = image;
         this.diff = diff;
-        this.isRecommended = isRecommended;
+        this.recommended = recommended;
         this.type = type;
     }
 
@@ -94,12 +94,13 @@ public class CourseListResponseDTO {
         this.diff = diff;
     }
 
-    public Boolean getIsRecommended() {
-        return isRecommended;
+    @JsonProperty("is_recommended")
+    public Boolean getRecommended() {
+        return recommended;
     }
 
-    public void setIsRecommended(Boolean isRecommended) {
-        this.isRecommended = isRecommended;
+    public void setRecommended(Boolean recommended) {
+        this.recommended = recommended;
     }
 
     public String getType() {

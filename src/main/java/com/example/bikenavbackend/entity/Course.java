@@ -1,5 +1,6 @@
 package com.example.bikenavbackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 
@@ -32,6 +33,7 @@ public class Course {
     private String thumbnailUrl;
 
     @Column(name = "is_recommended")
+    @JsonProperty("is_recommended")  // <== 추가
     private Boolean isRecommended;
 
     public Course() {
@@ -67,4 +69,4 @@ public class Course {
     public void setThumbnailUrl(String thumbnailUrl) { this.thumbnailUrl = thumbnailUrl; }
     public Boolean getIsRecommended() { return isRecommended; }
     public void setIsRecommended(Boolean isRecommended) { this.isRecommended = isRecommended; }
-}
+ }
