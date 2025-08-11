@@ -51,7 +51,7 @@
     - `type`: string ("walk" | "bike")
      ※ **기존 `"자전거"`, `"산책"` 대신 `"walk"`, `"bike"`로 변경**
     - `diff`: string ("상(1)" | "중(2)" | "하(3)")
-    - `is_recommended`: boolean
+    - `recommended`: boolean
 - **Response**:
   ```json
   {
@@ -64,7 +64,7 @@
       "time": number,
       "image": "string",      // thumbnail_url → "image" 로 변경
       "diff": number,
-      "is_recommended": true
+      "recommended": true
       "type" : "string"  // "walk" | "bike"
     }
    ]
