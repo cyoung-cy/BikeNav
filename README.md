@@ -116,6 +116,64 @@
 }
 ```
 
+### 📍 4.3 POI 조회 (상권조회)
+
+- **Endpoint**: `/api/course/{courseId}/pois`
+- **Method**: GET
+- **Query Parameters (Optional)**:
+	- `category`: string (`biz(상권), util(편의시설), tourist(관광지)`)
+- **Response**:
+  ```json
+  {
+  "success": true,
+  "data": {
+    "pois": [
+      {
+        "id": number,
+        "name": "string",
+        "type": "biz" | "util" | "tourist",
+        "point": {
+          "lat": number,
+          "lng": number
+        },
+        "explanation": "string"
+      }
+    ]
+  },
+  "message": "코스 주변 POI 조회 성공"
+}
+  ``` 
+
+### 📍 4.4 상권 상세 조회
+
+- **Endpoint**: `/api/course/{courseId}/pois/{place_id}'
+- **Method**: `GET`
+- **Response**:
+  ```json
+{
+  "success": true,
+  "data": {
+    "place_id": number,
+    "name": "string",
+    "type": "string",
+    "addr": "string",
+    "hour": "string",
+    "rate": number,
+    "tel" : "string",
+    "tag" : [
+    {"tag": "string"}
+    ], 
+    "images": [
+      {
+        "url": "string",
+        "is_main": boolean
+      }
+    ]
+  },
+  "message": "상권 상세 정보 조회 성공"
+}
+  ``` 
+
 ---
 
 ## 🧩 참고 사항
