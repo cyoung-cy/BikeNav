@@ -53,7 +53,7 @@
     - `diff`: string ("상(1)" | "중(2)" | "하(3)")
     - `recommended`: boolean
 - **Response**:
-  ```json
+```json
   {
 	"success": true,
 	"data": [
@@ -71,14 +71,13 @@
   }
 ```
 
----
 
 ### 📍 4.2 코스 상세 정보 조회
 
 - **Endpoint**: `/api/course/{courseId}`
 - **Method**: `GET`
 - **Response**:
-  ```json
+```json
   {
   "success": true,
   "data": {
@@ -123,7 +122,7 @@
 - **Query Parameters (Optional)**:
 	- `category`: string (`biz(상권), util(편의시설), tourist(관광지)`)
 - **Response**:
-  ```json
+```json
   {
   "success": true,
   "data": {
@@ -142,14 +141,14 @@
   },
   "message": "코스 주변 POI 조회 성공"
 }
-  ``` 
+``` 
 
 ### 📍 4.4 상권 상세 조회
 
 - **Endpoint**: `/api/course/{courseId}/pois/{place_id}'
 - **Method**: `GET`
 - **Response**:
-  ```json
+```json
 {
   "success": true,
   "data": {
@@ -172,7 +171,106 @@
   },
   "message": "상권 상세 정보 조회 성공"
 }
-  ``` 
+``` 
+
+### 📍 4.5 회원가입
+- **Endpoint**: `/api/auth/register`
+- **Method**: `POST`
+- **Request Body**:
+```json
+  {
+	  "name": "string",           // 사용자 이름
+	  "password": "string",       // 비밀번호
+	  "email": "string"           // 이메일
+  }
+``` 
+- **Response**:
+```json
+{
+  "success": true,
+  "message": "string"
+}
+```
+
+### 📍 4.6 로그인
+- **Endpoint**: `/api/auth/login`
+- **Method**: `POST`
+- **Request Body**:
+```json
+  {
+	"email": "string",          // 이메일
+	"password": "string"        // 비밀번호 (최소 8자리)
+  }
+``` 
+- **Response**:
+```json
+  {
+	"success": true,
+	"data": {
+	    "token": "string",        // JWT 토큰
+	    "user_id": number,        // 사용자 ID
+	    "name": "string"          // 사용자 이름
+	   },
+	"message": "로그인 성공"
+  }
+``` 
+
+### 📍 4.7 마을 특화상품 조회
+- **Endpoint**: `/api/villages/specialties`
+- **Method**: GET
+- **Description**: 마을별 특화상품 목록을 조회 (`food`, `tourism`, `tradition` 세 종류)
+- **Response**:
+```json
+{
+  "success": true,
+  "data": {
+    "specialties": [
+      {
+        "id": number,
+        "village_id": number,
+        "village_name": "string",
+        "type": "string",
+        "name": "string",
+        "image_url": "string",
+        "recommended": true,
+        "path": [
+          { "lat": number, "lng": number },
+        ]
+      }
+    ]
+  },
+  "message": "마을 특화상품 목록 조회 성공"
+}
+``` 
+
+### 📍9.2 마을 특화상품 상세 조회
+- **Endpoint**: `/api/villages/{villageId}/specialties/{type}/{id}`
+- **Method**: GET
+- **Description**: 마을 특화상품의 상세 정보를 조회
+	- `{type}` : `food`, `tourism`, `tradition` 중 하나
+	- `{id}` : 해당 타입의 PK (`food_id`, `tourism_id`, `tradition_id`)
+- **Response**:
+```json
+{
+  "success": true,
+  "data": {
+    "id": number,
+    "village_id": number,
+    "village_name": "string",
+    "village_addr": "string",
+    "type": "string",
+    "image_url": "string",
+    "tags": ["string"],
+    "recommended": true,
+    "content": {
+      "description": "string",
+      "price": "string",
+      "menu": ["string", "string"]
+    }
+  },
+  "message": "마을 특화상품 상세 조회 성공"
+}
+``` 
 
 ---
 
