@@ -243,7 +243,7 @@
 }
 ``` 
 
-### 📍9.2 마을 특화상품 상세 조회
+### 📍4.8 마을 특화상품 상세 조회
 - **Endpoint**: `/api/villages/{villageId}/specialties/{type}/{id}`
 - **Method**: GET
 - **Description**: 마을 특화상품의 상세 정보를 조회
@@ -271,6 +271,60 @@
   "message": "마을 특화상품 상세 조회 성공"
 }
 ``` 
+
+### 📍4.9 코스 후기 등록
+- **Endpoint**: `/api/review/course`
+- **Method**: `POST`
+- **Request Body**:
+```json
+  {
+	"user_id": number,
+	"course_id": number,
+	"tracking_id": number,
+	"rating": number,
+	"content": "string",
+	"img_url": "string"
+  }
+``` 
+- **Response**:
+```json
+ {
+  "success": true,
+  "message": "코스 후기 등록 완료",
+  "data": {
+    "review_id": number,
+    "user_id": number,
+    "course_id": number,
+    "rating": number,
+    "content": "string",
+    "img_url": "string",
+    "created_at": "string"
+   }
+ }
+``` 
+### 📍4.10 코스 후기 조회
+- **Endpoint**: `/api/review/course/{courseId}`
+- **Method**: `GET`
+- **Response**:
+```json
+ {
+  "success": true,
+  "data": {
+    "reviews": [
+      {
+        "review_id": number,
+        "user_id": number,
+        "user_name": "string",
+        "user_profile_url": "string",
+        "rating": number,
+        "content": "string",
+        "created_at": "string"
+       }
+    ]
+   },
+   "message": "코스 후기 조회 성공"
+ }
+```
 
 ---
 
