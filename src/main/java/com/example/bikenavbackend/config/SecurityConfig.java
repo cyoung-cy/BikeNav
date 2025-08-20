@@ -35,9 +35,17 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/register").permitAll()
-                        .requestMatchers("/api/auth/login").permitAll()
-                        .anyRequest().authenticated()
+                        // 인증 없이 접근 가능한 엔드포인트
+                        .requestMatchers("/api/auth/register", "/api/auth/login").permitAll()
+                        .requestMatchers("/api/course/**").permitAll()
+                        .requestMatchers("/api/villages/**").permitAll()
+                        .requestMatchers("/api/poi/**").permitAll()
+
+                        // 리뷰 관련 API는 인증 필요
+                        .requestMatchers("/api/review/**").authenticated()
+
+                        // 혹시 모르는 나머지는 전부 허용
+                        .anyRequest().permitAll()
                 )
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 

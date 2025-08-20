@@ -26,14 +26,13 @@ public class Course {
     @Column(name = "diff")
     private String diff;
 
-    @Column(name = "course_tag")
+    @Column(name = "course_tag", columnDefinition = "json")
     private String courseTag;
 
     @Column(name = "thumbnail_url")
     private String thumbnailUrl;
 
     @Column(name = "is_recommended")
-    @JsonProperty("is_recommended")  // <== 추가
     private Boolean isRecommended;
 
     public Course() {

@@ -160,7 +160,7 @@
     "rate": number,
     "tel" : "string",
     "tag" : [
-    {"tag": "string"}
+	    {"tag": "string"}
     ], 
     "images": [
       {
@@ -230,7 +230,6 @@
         "village_id": number,
         "village_name": "string",
         "type": "string",
-        "name": "string",
         "image_url": "string",
         "recommended": true,
         "path": [

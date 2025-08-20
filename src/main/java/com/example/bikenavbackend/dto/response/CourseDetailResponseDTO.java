@@ -3,6 +3,7 @@ package com.example.bikenavbackend.dto.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
+import java.util.Map;
 
 public class CourseDetailResponseDTO {
 
@@ -34,7 +35,7 @@ public class CourseDetailResponseDTO {
     private List<ImageResponse> images;
 
     @JsonProperty("tags")
-    private List<String> tags;
+    private List<Map<String, String>> tags;
 
     @JsonProperty("tourist_spots")
     private List<String> touristSpots;
@@ -46,7 +47,7 @@ public class CourseDetailResponseDTO {
 
     public CourseDetailResponseDTO(Integer courseId, String title, Double distKm, Integer time,
                                    List<CoordinateResponse> path, Integer diff, String type, String description,
-                                   List<ImageResponse> images, List<String> tags, List<String> touristSpots,
+                                   List<ImageResponse> images, List<Map<String, String>> tags, List<String> touristSpots,
                                    List<String> nearbyBusinesses) {
         this.courseId = courseId;
         this.title = title;
@@ -80,8 +81,8 @@ public class CourseDetailResponseDTO {
     public void setDescription(String description) { this.description = description; }
     public List<ImageResponse> getImages() { return images; }
     public void setImages(List<ImageResponse> images) { this.images = images; }
-    public List<String> getTags() { return tags; }
-    public void setTags(List<String> tags) { this.tags = tags; }
+    public List<Map<String, String>> getTags() { return tags; }
+    public void setTags(List<Map<String, String>> tags) { this.tags = tags; }
     public List<String> getTouristSpots() { return touristSpots; }
     public void setTouristSpots(List<String> touristSpots) { this.touristSpots = touristSpots; }
     public List<String> getNearbyBusinesses() { return nearbyBusinesses; }

@@ -55,25 +55,18 @@ public class SpecialtyDetailService {
     }
 
     private SpecialtyDetailResponseDTO mapToDTO(Village village, String type, Integer id, String contentJson, Boolean recommended) throws Exception {
-        // contentJson 파싱
         JsonNode contentNode = objectMapper.readTree(contentJson);
 
-        String name = "";
-        if (contentNode.has("name")) {
-            name = contentNode.get("name").asText();
-        } else if (contentNode.has("title")) {
-            name = contentNode.get("title").asText();
-        }
-
-        String description = contentNode.has("description") ? contentNode.get("description").asText() : "";
-        String price = contentNode.has("price") ? contentNode.get("price").asText() : "";
+        // 모든 타입 공통 처리: "비용", "설명", "상품명"
+        String name = contentNode.has("상품명") ? contentNode.get("상품명").asText() : "";
+        String description = contentNode.has("설명") ? contentNode.get("설명").asText() : "";
+        String price = contentNode.has("비용") ? contentNode.get("비용").asText() : "";
         List<String> menu = new ArrayList<>();
-        if (contentNode.has("menu") && contentNode.get("menu").isArray()) {
-            for (JsonNode menuNode : contentNode.get("menu")) {
-                menu.add(menuNode.asText());
-            }
+        if (contentNode.has("상품명")) {
+            menu.add(contentNode.get("상품명").asText());
         }
 
+        // 마을 태그
         List<String> tags = new ArrayList<>();
         if (village.getVillageTag() != null && !village.getVillageTag().isEmpty()) {
             JsonNode tagsNode = objectMapper.readTree(village.getVillageTag());
@@ -99,4 +92,5 @@ public class SpecialtyDetailService {
                 contentDTO
         );
     }
+
 }

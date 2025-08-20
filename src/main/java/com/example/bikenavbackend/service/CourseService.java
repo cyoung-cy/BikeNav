@@ -51,9 +51,12 @@ public class CourseService {
                 .orElse(null);
 
         // 1) tags
-        List<String> tags = Collections.emptyList();
-        if(course.getCourseTag()!=null){
-            tags = objectMapper.readValue(course.getCourseTag(), new TypeReference<List<String>>(){});
+        List<Map<String, String>> tags = Collections.emptyList();
+        if (course.getCourseTag() != null) {
+            tags = objectMapper.readValue(
+                    course.getCourseTag(),
+                    new TypeReference<List<Map<String, String>>>() {}
+            );
         }
 
         // 2) tourist_spots / nearby_businesses (varchar에 JSON 배열 문자열 들어오므로 파싱)
