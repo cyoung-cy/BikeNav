@@ -1,0 +1,12 @@
+package com.example.bikenavbackend.repository;
+
+import com.example.bikenavbackend.entity.TraditionDetail;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface TraditionDetailRepository extends JpaRepository<TraditionDetail, Integer> {
+    List<TraditionDetail> findByVillageId(Integer villageId);
+}
