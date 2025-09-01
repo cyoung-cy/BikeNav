@@ -47,7 +47,63 @@ BikeNav는 평창군의 산책길과 자전거길 정보를 실시간으로 제�
 - **데이터 처리:** GPS 좌표 기반 경로 계산 및 거리 계산 알고리즘
 
 ---
+## 📁 프로젝트 구조
+```
+BikeNav/
+├── Bikenav-Back/              # 백엔드 프로젝트 (Spring Boot 기반)
+│   ├── src/                   # 소스 코드
+│   ├── build.gradle           # Gradle 빌드 설정 파일
+│   └── README.md              # 백엔드 프로젝트 설명서
+├── Bikenav-Front/             # 프론트엔드 프로젝트 (React Native 기반)
+│   ├── src/                   # 소스 코드
+│   ├── App.js                 # 앱 진입점
+│   └── README.md              # 프론트엔드 프로젝트 설명서
+└── README.md                  # 프로젝트 전체 설명서
+```
+---
 
+## 🛠 설치 및 실행 방법
+## 백엔드 (Bikenav-Back)
+
+1. 프로젝트 클론
+```
+git clone https://github.com/cyoung-cy/BikeNav.git
+cd BikeNav/Bikenav-Back
+```
+
+2. 의존성 설치
+```
+./gradlew build
+```
+
+3. 애플리케이션 실행
+```
+./gradlew bootRun
+```
+
+애플리케이션이 실행되면 기본적으로 http://localhost:8080에서 접근할 수 있습니다.
+
+## 프론트엔드 (Bikenav-Front)
+
+1. 프로젝트 클론
+```
+git clone https://github.com/cyoung-cy/BikeNav.git
+cd BikeNav/Bikenav-Front
+```
+
+2. 의존성 설치
+```
+npm install
+```
+
+3. 애플리케이션 실행
+```
+npm start
+```
+
+앱이 실행되면 모바일 시뮬레이터 또는 실제 디바이스에서 확인할 수 있습니다.
+
+---
 ## 👩🏻‍💻 역할 및 기여
 
 - 앱 백엔드 개발
@@ -77,4 +133,12 @@ BikeNav는 평창군의 산책길과 자전거길 정보를 실시간으로 제�
 - 평창군 관광문화재단 코스 데이터 연동
 - Firebase Firestore 및 MySQL 연동
 - 지도 API 및 GPS 기반 경로 안내
+
+---
+## 🚀 향후 개선 방향
+
+- **다국어 지원:** 다양한 언어를 지원하여 외국인 관광객도 쉽게 이용할 수 있도록 개선 예정입니다.
+- **오프라인 모드:** 인터넷 연결 없이도 코스 정보를 확인할 수 있는 오프라인 모드 기능 추가 예정입니다.
+- **사용자 맞춤 추천:** 사용자의 활동 이력을 기반으로 맞춤형 코스를 추천하는 기능을 개발할 예정입니다.
+- **커뮤니티 기능:** 사용자 간의 소통을 위한 코스 공유 및 리뷰 기능 강화 예정입니다.
 
